@@ -1,33 +1,7 @@
 <main class="bg-neutral-950 h-screen text-white">
     <div class="max-w-xl mx-auto pt-16">
-        <input
-            type="text"
-            class="w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 p-4 text-lg"
-            placeholder="City name..."
-        />
-
-        <div class="w-full mt-20 mx-auto flex items-center justify-around">
-            <div class="w-52 h-52">
-                <img src="assets/svg/sun.svg" class="w-full h-full" alt="" />
-            </div>
-            <div>
-                <div class="text-8xl mb-4">26°C</div>
-                <div class="text-center text-3xl">Sunny</div>
-            </div>
-        </div>
-
-        <div
-            class="mt-20 mx-auto w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 p-4 text-lg"
-        >
-            <div class="flex justify-around items-center">
-                <div>Forecast</div>
-                <div>Today info</div>
-                <div>Next 14 days</div>
-            </div>
-        </div>
+        <app-search-bar></app-search-bar>
+        <app-current-weather></app-current-weather>
+        <app-tabbed-info></app-tabbed-info>
     </div>
 </main>
-
-<!-- <app-search-bar></app-search-bar>
-<app-current-weather></app-current-weather>
-<app-tabbed-info></app-tabbed-info> -->

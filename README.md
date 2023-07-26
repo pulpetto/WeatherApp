@@ -8,7 +8,7 @@
 
 # Thing (functionality) I want accomplish in this project
 
--   [ ] Glass design
+-   [x] Glass design
 -   [ ] Currect weather
 -   [ ] Todays feels like
 -   [ ] Todays sunrise

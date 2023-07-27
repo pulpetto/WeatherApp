@@ -1,8 +1,38 @@
 <!-- ngIf userLocation === none -->
-<div *ngIf="!userLocation">nothing to show</div>
+<div
+    *ngIf="!userLocation"
+    class="flex flex-col justify-center items-center gap-8"
+>
+    <div class="w-64 h-64">
+        <img
+            src="assets/svg/welcome.svg"
+            class="w-full h-full"
+            alt="error icon"
+        />
+    </div>
+    <div class="text-3xl text-center">
+        Please provide us with your location, <br />
+        or search for city manually
+    </div>
+</div>
 
 <!-- ngIf userLocation === denied -->
-<div *ngIf="userLocation === 'denied'">couldnt get your location</div>
+<div
+    *ngIf="userLocation === 'denied'"
+    class="flex flex-col justify-center items-center gap-8"
+>
+    <div class="w-64 h-64">
+        <img
+            src="assets/svg/error.svg"
+            class="w-full h-full"
+            alt="error icon"
+        />
+    </div>
+    <div class="text-4xl text-center">
+        Could not get your location, <br />
+        please search for city manually
+    </div>
+</div>
 
 <!-- ngIf userLocation === coords -->
 <div

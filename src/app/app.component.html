@@ -1,7 +1,9 @@
 <main class="bg-neutral-950 h-screen text-white">
     <div class="max-w-xl mx-auto pt-16">
-        <app-search-bar></app-search-bar>
-        <app-current-weather></app-current-weather>
+        <app-search-bar [userLocation]="userLocation"></app-search-bar>
+        <app-current-weather
+            [userLocation]="userLocation"
+        ></app-current-weather>
         <app-tabbed-info></app-tabbed-info>
     </div>
 </main>

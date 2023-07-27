@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { GeoLocationService } from 'src/app/services/geo-location.service';
+import { Input } from '@angular/core';
 
 @Component({
     selector: 'app-search-bar',
@@ -8,22 +7,10 @@ import { GeoLocationService } from 'src/app/services/geo-location.service';
     styleUrls: ['./search-bar.component.css'],
 })
 export class SearchBarComponent {
-    constructor(private geolocationService: GeoLocationService) {}
-
-    ngOnInit() {
-        this.geolocationService.askForLocation().then(
-            (coords) => {
-                console.log(coords.latitude, coords.longitude);
-                this.geolocationService.userLocation = coords;
-            },
-            (error) => {
-                console.error('Error getting user location:', error);
-                this.geolocationService.userLocation = 'denied';
-            }
-        );
-    }
+    @Input() userLocation: string | undefined;
 
     onCitySearch(cityName: string) {
         if (!cityName) return;
+        console.log(this.userLocation);
     }
 }

@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { GeoLocationService } from 'src/app/services/geo-location.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-current-weather',
@@ -7,7 +6,5 @@ import { GeoLocationService } from 'src/app/services/geo-location.service';
     styleUrls: ['./current-weather.component.css'],
 })
 export class CurrentWeatherComponent {
-    constructor(private geolocationService: GeoLocationService) {}
-
-    userLocation = this.geolocationService.userLocation;
+    @Input() userLocation: string | undefined;
 }

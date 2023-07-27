@@ -1,11 +1,18 @@
 <!-- ngIf userLocation === none -->
-<div *ngIf="!userLocation"></div>
+<div *ngIf="!userLocation">nothing to show</div>
 
 <!-- ngIf userLocation === denied -->
 <div *ngIf="userLocation === 'denied'">couldnt get your location</div>
 
 <!-- ngIf userLocation === coords -->
-<div class="w-full mt-20 mx-auto flex items-center justify-around">
+<div
+    *ngIf="
+        userLocation !== 'denied' &&
+        userLocation !== 'none' &&
+        userLocation !== undefined
+    "
+    class="w-full mx-auto flex items-center justify-around"
+>
     <div class="w-52 h-52">
         <img src="assets/svg/sun.svg" class="w-full h-full" alt="" />
     </div>

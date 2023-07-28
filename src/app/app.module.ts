@@ -7,18 +7,17 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 import { TabbedInfoComponent } from './components/tabbed-info/tabbed-info.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    SearchBarComponent,
-    CurrentWeatherComponent,
-    TabbedInfoComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        SearchBarComponent,
+        CurrentWeatherComponent,
+        TabbedInfoComponent,
+    ],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

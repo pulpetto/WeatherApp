@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Input } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-search-bar',
@@ -7,10 +6,17 @@ import { Input } from '@angular/core';
     styleUrls: ['./search-bar.component.css'],
 })
 export class SearchBarComponent {
-    @Input() userLocation: string | undefined;
+    @ViewChild('citySearch', { static: false })
+    citySearchInput!: ElementRef<HTMLInputElement>;
 
     onCitySearch(cityName: string) {
         if (!cityName) return;
-        console.log(this.userLocation);
+    }
+
+    updateInputVal(cityName: string) {
+        // po co blokadka
+        if (this.citySearchInput) {
+            this.citySearchInput.nativeElement.value = cityName;
+        }
     }
 }

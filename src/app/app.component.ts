@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { GeoLocationService } from './services/geo-location.service';
 import { WeatherApiService } from './services/weather-api.service';
+import { Weather } from './interfaces/weather';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @Component({
     selector: 'app-root',
@@ -15,6 +17,9 @@ export class AppComponent {
 
     userLocation: any;
 
+    @ViewChild('searchBarRef', { static: false })
+    searchBarElRef!: SearchBarComponent;
+
     ngOnInit() {
         this.geolocationService.askForLocation().then(
             (coords: any) => {
@@ -22,11 +27,20 @@ export class AppComponent {
 
                 this.userLocation = this.geolocationService.userLocation;
 
-                // Update
-                this.weatherAPIService.getWeatherByCoordinates(
-                    coords.latitude,
-                    coords.longitude
-                );
+                // if coutry us then IMPERIAL if not METRIC
+                const unit = 'metric';
+                this.weatherAPIService
+                    .getWeatherByCoordinates(
+                        coords.latitude,
+                        coords.longitude,
+                        unit
+                    )
+                    .subscribe((data: Weather) => {
+                        console.log(data);
+                        if (this.searchBarElRef) {
+                            this.searchBarElRef.updateInputVal(data.name);
+                        }
+                    });
             },
             (error: any) => {
                 console.error('Error getting user location:', error);

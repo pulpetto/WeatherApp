@@ -15,9 +15,10 @@ export class WeatherApiService {
 
     getWeatherByCoordinates(
         latitude: number,
-        longitude: number
+        longitude: number,
+        units: string
     ): Observable<Weather> {
-        const url = `${this.baseUrlByCoords}?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}`;
+        const url = `${this.baseUrlByCoords}?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=${units}`;
 
         return this.http.get<Weather>(url);
     }

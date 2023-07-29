@@ -37,9 +37,13 @@ export class AppComponent {
                     )
                     .subscribe((data: Weather) => {
                         console.log(data);
+
+                        // update input value
                         if (this.searchBarElRef) {
                             this.searchBarElRef.updateInputVal(data.name);
                         }
+
+                        // call API with city name
                     });
             },
             (error: any) => {

@@ -3,6 +3,7 @@ import { GeoLocationService } from './services/geo-location.service';
 import { WeatherApiService } from './services/weather-api.service';
 import { Weather } from './interfaces/weather';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 
 @Component({
     selector: 'app-root',
@@ -20,6 +21,9 @@ export class AppComponent {
     @ViewChild('searchBarRef', { static: false })
     searchBarElRef!: SearchBarComponent;
 
+    @ViewChild('currentWeatherRef', { static: false })
+    currentWeatherElRef!: CurrentWeatherComponent;
+
     ngOnInit() {
         this.geolocationService.askForLocation().then(
             (coords: any) => {
@@ -36,7 +40,7 @@ export class AppComponent {
                         unit
                     )
                     .subscribe((data: Weather) => {
-                        console.log(data);
+                        console.log('From app component ->', data);
 
                         // update input value
                         if (this.searchBarElRef) {
@@ -44,6 +48,9 @@ export class AppComponent {
                         }
 
                         // update weather stats
+                        if (this.currentWeatherElRef) {
+                            this.currentWeatherElRef.updateWeatherInfo(data);
+                        }
                     });
             },
             (error: any) => {

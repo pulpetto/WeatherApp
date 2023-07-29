@@ -47,7 +47,9 @@
         <img src="assets/svg/sun.svg" class="w-full h-full" alt="" />
     </div>
     <div>
-        <div class="text-8xl mb-4">26°C</div>
+        <div class="text-8xl mb-4">
+            {{ weatherInfo?.main?.temp | number : "1.0-0" }}°C
+        </div>
         <div class="text-center text-3xl">Sunny</div>
     </div>
 </div>

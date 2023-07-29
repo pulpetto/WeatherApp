@@ -2,6 +2,7 @@
     <div class="max-w-xl mx-auto pt-16">
         <app-search-bar #searchBarRef></app-search-bar>
         <app-current-weather
+            #currentWeatherRef
             [userLocation]="userLocation"
         ></app-current-weather>
         <app-tabbed-info

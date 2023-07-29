@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { WeatherApiService } from 'src/app/services/weather-api.service';
 
 @Component({
     selector: 'app-search-bar',
@@ -6,6 +7,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
     styleUrls: ['./search-bar.component.css'],
 })
 export class SearchBarComponent {
+    constructor(private weatherAPIService: WeatherApiService) {}
+
     @ViewChild('citySearch', { static: false })
     citySearchInput!: ElementRef<HTMLInputElement>;
 
@@ -17,6 +20,14 @@ export class SearchBarComponent {
 
     onCitySearch(cityName: string) {
         if (!cityName) return;
-        console.log(cityName);
+
+        this.weatherAPIService.getWeatherByCityName(cityName).subscribe(
+            (data) => {
+                console.log(data);
+            },
+            (error) => {
+                console.error('Error fetching weather data:', error);
+            }
+        );
     }
 }

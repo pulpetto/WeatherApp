@@ -43,7 +43,7 @@ export class AppComponent {
                             this.searchBarElRef.updateInputVal(data.name);
                         }
 
-                        // call API with city name
+                        // update weather stats
                     });
             },
             (error: any) => {

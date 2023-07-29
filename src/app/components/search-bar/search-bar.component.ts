@@ -9,14 +9,14 @@ export class SearchBarComponent {
     @ViewChild('citySearch', { static: false })
     citySearchInput!: ElementRef<HTMLInputElement>;
 
-    onCitySearch(cityName: string) {
-        if (!cityName) return;
-    }
-
     updateInputVal(cityName: string) {
-        // po co blokadka
         if (this.citySearchInput) {
             this.citySearchInput.nativeElement.value = cityName;
         }
+    }
+
+    onCitySearch(cityName: string) {
+        if (!cityName) return;
+        console.log(cityName);
     }
 }

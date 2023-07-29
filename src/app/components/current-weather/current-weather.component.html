@@ -41,15 +41,19 @@
         userLocation !== 'none' &&
         userLocation !== undefined
     "
-    class="w-full mx-auto flex items-center justify-around"
+    class="w-full mx-auto flex items-center justify-around gap-12"
 >
     <div class="w-52 h-52">
         <img src="assets/svg/sun.svg" class="w-full h-full" alt="" />
     </div>
     <div>
-        <div class="text-8xl mb-4">
+        <div class="text-8xl mb-4 text-center">
             {{ weatherInfo?.main?.temp | number : "1.0-0" }}°C
         </div>
-        <div class="text-center text-3xl">Sunny</div>
+        <div class="text-center text-2xl">
+            <!-- shorter name -->
+            <!-- {{ weatherInfo?.weather?.[0]?.main }} -->
+            {{ weatherInfo?.weather?.[0]?.description }}
+        </div>
     </div>
 </div>

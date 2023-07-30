@@ -8,6 +8,7 @@ import { Weather } from 'src/app/interfaces/weather';
 })
 export class CurrentWeatherComponent {
     @Input() userLocation: string | undefined;
+    @Input() locationData!: Weather;
 
     weatherInfo!: Weather;
     weatherIconSrc!: string;
@@ -18,12 +19,12 @@ export class CurrentWeatherComponent {
 
         this.weatherIconSrc = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
-        if (data.weather[0].main === 'Cloud') {
-            this.weatherIconSrc = 'assets/svg/cloud.svg';
-        }
+        // if (data.weather[0].main === 'Cloud') {
+        //     this.weatherIconSrc = 'assets/svg/cloud.svg';
+        // }
 
-        if (data.weather[0].main === 'Cloud') {
-            this.weatherIconSrc = 'assets/svg/cloud.svg';
-        }
+        // if (data.weather[0].main === 'Cloud') {
+        //     this.weatherIconSrc = 'assets/svg/cloud.svg';
+        // }
     }
 }

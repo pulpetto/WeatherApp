@@ -42,6 +42,8 @@ export class AppComponent {
                     .subscribe((data: Weather) => {
                         console.log('From app component ->', data);
 
+                        // could be done using @Input()
+
                         // update input value
                         if (this.searchBarElRef) {
                             this.searchBarElRef.updateInputVal(data.name);
@@ -60,5 +62,11 @@ export class AppComponent {
                 this.userLocation = this.geolocationService.userLocation;
             }
         );
+    }
+
+    // searching by location name
+    locationData!: Weather;
+    setData(data: Weather) {
+        this.locationData = data;
     }
 }

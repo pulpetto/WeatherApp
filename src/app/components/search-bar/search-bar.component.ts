@@ -1,5 +1,12 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    EventEmitter,
+    Output,
+    ViewChild,
+} from '@angular/core';
 import { WeatherApiService } from 'src/app/services/weather-api.service';
+import { Weather } from 'src/app/interfaces/weather';
 
 @Component({
     selector: 'app-search-bar',
@@ -8,6 +15,8 @@ import { WeatherApiService } from 'src/app/services/weather-api.service';
 })
 export class SearchBarComponent {
     constructor(private weatherAPIService: WeatherApiService) {}
+
+    @Output() weatherDataEvent = new EventEmitter<Weather>();
 
     @ViewChild('citySearch', { static: false })
     citySearchInput!: ElementRef<HTMLInputElement>;
@@ -23,8 +32,9 @@ export class SearchBarComponent {
 
         this.weatherAPIService
             .getWeatherByCityName(cityName)
-            .subscribe((data) => {
+            .subscribe((data: Weather) => {
                 console.log(data);
+                this.weatherDataEvent.emit(data);
             });
     }
 }

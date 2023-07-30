@@ -1,6 +1,9 @@
 <main class="bg-neutral-950 h-screen text-white">
     <div class="max-w-xl mx-auto pt-16">
-        <app-search-bar #searchBarRef></app-search-bar>
+        <app-search-bar
+            #searchBarRef
+            (weatherDataEvent)="setData($event)"
+        ></app-search-bar>
         <app-current-weather
             #currentWeatherRef
             [userLocation]="userLocation"

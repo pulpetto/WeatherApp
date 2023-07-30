@@ -42,8 +42,6 @@ export class AppComponent {
                     .subscribe((data: Weather) => {
                         console.log('From app component ->', data);
 
-                        // could be done using @Input()
-
                         // update input value
                         if (this.searchBarElRef) {
                             this.searchBarElRef.updateInputVal(data.name);

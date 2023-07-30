@@ -6,10 +6,11 @@
 -   RxJS
 -   Tailwind CSS
 
-# Thing (functionality) I want accomplish in this project
+# Things (functionality) I want accomplish in this project
 
 -   [x] Glass design
--   [ ] Currect weather
+-   [x] Currect weather
+-   [ ] Search for location
 -   [ ] Todays feels like
 -   [ ] Todays sunrise
 -   [ ] Todays sunset

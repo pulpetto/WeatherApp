@@ -26,6 +26,30 @@ export class WeatherApiService {
     getWeatherByCityName(cityName: string): Observable<Weather> {
         const url = `${this.baseUrlByCoords}?q=${cityName}&appid=${this.apiKey}`;
 
-        return this.http.get<Weather>(url);
+        // return this.http.get<Weather>(url);
+
+        return new Observable<Weather>((observer) => {
+            this.http.get<Weather>(url).subscribe({
+                next: (data: Weather) => {
+                    observer.next(data);
+                    observer.complete();
+                },
+                error: (error: any) => {
+                    observer.error(error);
+                },
+            });
+        });
+
+        // return new Observable<Weather>((observer) => {
+        //     this.http.get<Weather>(url).subscribe(
+        //         (data: Weather) => {
+        //             observer.next(data);
+        //             observer.complete();
+        //         },
+        //         (error: any) => {
+        //             observer.error(error);
+        //         }
+        //     );
+        // });
     }
 }

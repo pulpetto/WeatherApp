@@ -21,13 +21,10 @@ export class SearchBarComponent {
     onCitySearch(cityName: string) {
         if (!cityName) return;
 
-        this.weatherAPIService.getWeatherByCityName(cityName).subscribe(
-            (data) => {
+        this.weatherAPIService
+            .getWeatherByCityName(cityName)
+            .subscribe((data) => {
                 console.log(data);
-            },
-            (error) => {
-                console.error('Error fetching weather data:', error);
-            }
-        );
+            });
     }
 }

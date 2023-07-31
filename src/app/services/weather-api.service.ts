@@ -9,7 +9,6 @@ import { Weather } from '../interfaces/weather';
 export class WeatherApiService {
     private apiKey = '721a956f72738d6959dce2e545fb8d44';
     private baseUrlByCoords = 'https://api.openweathermap.org/data/2.5/weather';
-    private baseUrlByLocation = '';
 
     constructor(private http: HttpClient) {}
 
@@ -23,8 +22,8 @@ export class WeatherApiService {
         return this.http.get<Weather>(url);
     }
 
-    getWeatherByCityName(cityName: string): Observable<Weather> {
-        const url = `${this.baseUrlByCoords}?q=${cityName}&appid=${this.apiKey}`;
+    getWeatherByCityName(cityName: string, units: string): Observable<Weather> {
+        const url = `${this.baseUrlByCoords}?q=${cityName}&appid=${this.apiKey}&units=${units}`;
 
         // return this.http.get<Weather>(url);
 

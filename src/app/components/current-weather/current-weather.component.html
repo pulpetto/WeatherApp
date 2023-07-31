@@ -45,19 +45,19 @@
 >
     <div class="w-52 h-52">
         <img
-            [src]="weatherIconSrc"
+            [src]="locationIconSrc"
             class="w-full h-full"
-            [alt]="weatherInfo?.weather?.[0]?.description"
+            [alt]="locationData?.weather?.[0]?.description"
         />
     </div>
     <div>
         <div class="text-8xl mb-4 text-center">
-            {{ weatherInfo?.main?.temp | number : "1.0-0" }}°C
+            {{ locationData?.main?.temp | number : "1.0-0" }}°C
         </div>
         <div class="text-center text-2xl">
             <!-- shorter name -->
             <!-- {{ weatherInfo?.weather?.[0]?.main }} -->
-            {{ weatherInfo?.weather?.[0]?.description }}
+            {{ locationData?.weather?.[0]?.description }}
         </div>
     </div>
 </div>

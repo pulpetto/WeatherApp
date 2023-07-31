@@ -5,8 +5,8 @@
             (weatherDataEvent)="setData($event)"
         ></app-search-bar>
         <app-current-weather
-            #currentWeatherRef
             [userLocation]="userLocation"
+            [locationData]="locationData"
         ></app-current-weather>
         <app-tabbed-info
             *ngIf="

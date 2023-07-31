@@ -30,10 +30,12 @@ export class SearchBarComponent {
     onCitySearch(cityName: string) {
         if (!cityName) return;
 
+        const units = 'metric';
+
         this.weatherAPIService
-            .getWeatherByCityName(cityName)
+            .getWeatherByCityName(cityName, units)
             .subscribe((data: Weather) => {
-                console.log(data);
+                console.log('From search-bar component ->', data);
                 this.weatherDataEvent.emit(data);
             });
     }

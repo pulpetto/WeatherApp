@@ -17,19 +17,16 @@ export class AppComponent {
     ) {}
 
     userLocation: any;
+    locationData!: Weather;
 
     @ViewChild('searchBarRef', { static: false })
     searchBarElRef!: SearchBarComponent;
-
-    @ViewChild('currentWeatherRef', { static: false })
-    currentWeatherElRef!: CurrentWeatherComponent;
 
     ngOnInit() {
         this.geolocationService.askForLocation().then(
             (coords: any) => {
                 this.geolocationService.userLocation = coords;
-
-                this.userLocation = this.geolocationService.userLocation;
+                this.userLocation = 'known';
 
                 // if coutry us then IMPERIAL if not METRIC
                 const unit = 'metric';
@@ -40,17 +37,11 @@ export class AppComponent {
                         unit
                     )
                     .subscribe((data: Weather) => {
-                        console.log('From app component ->', data);
-
-                        // update input value
                         if (this.searchBarElRef) {
                             this.searchBarElRef.updateInputVal(data.name);
                         }
 
-                        // update weather stats
-                        if (this.currentWeatherElRef) {
-                            this.currentWeatherElRef.updateWeatherInfo(data);
-                        }
+                        this.locationData = data;
                     });
             },
             (error: any) => {
@@ -63,8 +54,8 @@ export class AppComponent {
     }
 
     // searching by location name
-    locationData!: Weather;
     setData(data: Weather) {
+        this.userLocation = 'known';
         this.locationData = data;
     }
 }

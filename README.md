@@ -10,7 +10,7 @@
 
 -   [x] Glass design
 -   [x] Currect weather
--   [ ] Search for location
+-   [x] Search for location
 -   [ ] Todays feels like
 -   [ ] Todays sunrise
 -   [ ] Todays sunset

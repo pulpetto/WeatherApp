@@ -11,6 +11,7 @@
 -   [x] Glass design
 -   [x] Currect weather
 -   [x] Search for location
+-   [ ] Use metrical or imperial depending on location
 -   [ ] Todays feels like
 -   [ ] Todays sunrise
 -   [ ] Todays sunset

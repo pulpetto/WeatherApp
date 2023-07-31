@@ -8,6 +8,9 @@ import { CurrentWeatherComponent } from './components/current-weather/current-we
 import { TabbedInfoComponent } from './components/tabbed-info/tabbed-info.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HourlyForecastComponent } from './components/hourly-forecast/hourly-forecast.component';
+import { TodaysInfoComponent } from './components/todays-info/todays-info.component';
+import { WeeklyForecastComponent } from './components/weekly-forecast/weekly-forecast.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
         SearchBarComponent,
         CurrentWeatherComponent,
         TabbedInfoComponent,
+        HourlyForecastComponent,
+        TodaysInfoComponent,
+        WeeklyForecastComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [],

@@ -8,7 +8,6 @@
 
 # Things (functionality) I want accomplish in this project
 
--   [x] Glass design
 -   [x] Currect weather
 -   [x] Search for location
 -   [ ] Hourly forecast

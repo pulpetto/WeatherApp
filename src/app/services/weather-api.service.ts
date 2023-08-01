@@ -51,4 +51,24 @@ export class WeatherApiService {
         //     );
         // });
     }
+
+    getHourlyForecastByCoords(
+        latitude: number,
+        longitude: number,
+        units: string
+    ): Observable<Weather> {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=${units}`;
+
+        return new Observable<any>((observer) => {
+            this.http.get<any>(url).subscribe({
+                next: (data: any) => {
+                    observer.next(data.list);
+                    observer.complete();
+                },
+                error: (error: any) => {
+                    observer.error(error);
+                },
+            });
+        });
+    }
 }

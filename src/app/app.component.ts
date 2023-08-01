@@ -18,6 +18,7 @@ export class AppComponent {
 
     userLocation: any;
     locationData!: Weather;
+    locationForecast: any;
 
     @ViewChild('searchBarRef', { static: false })
     searchBarElRef!: SearchBarComponent;
@@ -42,6 +43,17 @@ export class AppComponent {
                         }
 
                         this.locationData = data;
+                    });
+
+                this.weatherAPIService
+                    .getHourlyForecastByCoords(
+                        coords.latitude,
+                        coords.longitude,
+                        unit
+                    )
+                    .subscribe((data: any) => {
+                        console.log('Forecast ->', data.slice(0, 8));
+                        this.locationForecast = data.slice(0, 8);
                     });
             },
             (error: any) => {

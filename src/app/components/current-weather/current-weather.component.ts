@@ -9,11 +9,4 @@ import { Weather } from 'src/app/interfaces/weather';
 export class CurrentWeatherComponent {
     @Input() userLocation: string | undefined;
     @Input() locationData!: Weather;
-    locationIconSrc!: string;
-
-    ngOnChanges(changes: SimpleChanges) {
-        if (changes['locationData'] && this.locationData) {
-            this.locationIconSrc = `https://openweathermap.org/img/wn/${this.locationData?.weather[0].icon}.png`;
-        }
-    }
 }

@@ -45,7 +45,7 @@
 >
     <div class="w-52 h-52">
         <img
-            [src]="locationIconSrc"
+            [src]="'https://openweathermap.org/img/wn/' + locationData?.weather?.[0]?.icon + '.png'"
             class="w-full h-full"
             [alt]="locationData?.weather?.[0]?.description"
         />

@@ -52,8 +52,8 @@ export class AppComponent {
                         unit
                     )
                     .subscribe((data: any) => {
-                        console.log('Forecast ->', data.slice(0, 8));
-                        this.locationForecast = data.slice(0, 8);
+                        console.log('Forecast ->', data.slice(0, 7));
+                        this.locationForecast = data.slice(0, 7);
                     });
             },
             (error: any) => {

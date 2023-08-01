@@ -11,6 +11,8 @@ import { HourlyForecastComponent } from './components/hourly-forecast/hourly-for
 import { TodaysInfoComponent } from './components/todays-info/todays-info.component';
 import { WeeklyForecastComponent } from './components/weekly-forecast/weekly-forecast.component';
 
+import { DatePipe } from '@angular/common';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,7 +24,7 @@ import { WeeklyForecastComponent } from './components/weekly-forecast/weekly-for
         WeeklyForecastComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-    providers: [],
+    providers: [DatePipe],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

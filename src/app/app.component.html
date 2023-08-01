@@ -16,7 +16,10 @@
             "
             class="flex flex-col items-center gap-10"
         >
-            <app-hourly-forecast class="w-full"></app-hourly-forecast>
+            <app-hourly-forecast
+                [locationForecast]="locationForecast"
+                class="w-full"
+            ></app-hourly-forecast>
             <app-todays-info class="w-full"></app-todays-info>
             <app-weekly-forecast class="w-full"></app-weekly-forecast>
         </div>

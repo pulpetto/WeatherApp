@@ -14,6 +14,4 @@
 -   [ ] Use metrical or imperial depending on location
 -   [ ] Todays info
 -   [ ] Daily (14 days) forecast
--   [ ] (14 days) rain propability
--   [ ] (14 days) day/night temperature
 -   [ ] User favorite locations

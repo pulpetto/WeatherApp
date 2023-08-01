@@ -21,7 +21,10 @@
                 [locationForecast]="locationForecast"
                 class="w-full"
             ></app-hourly-forecast>
-            <app-todays-info class="w-full"></app-todays-info>
+            <app-todays-info
+                [locationData]="locationData"
+                class="w-full"
+            ></app-todays-info>
             <app-weekly-forecast class="w-full"></app-weekly-forecast>
         </div>
     </div>

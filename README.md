@@ -11,7 +11,7 @@
 -   [x] Currect weather
 -   [x] Search for location
 -   [x] Hourly forecast
--   [ ] Use metrical or imperial depending on location
--   [ ] Todays info
+-   [ ] Handle internalization stuff
+-   [x] Todays info
 -   [ ] Daily (14 days) forecast
 -   [ ] User favorite locations

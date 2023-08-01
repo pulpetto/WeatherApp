@@ -50,11 +50,7 @@
             </div>
             <div class="flex justify-between items-center w-full">
                 <div>Wind</div>
-                <div class="mr-3">
-                    {{
-                        getHourFromUnixTimestamp(locationData?.wind?.speed)
-                    }}km/h
-                </div>
+                <div class="mr-3">{{ locationData?.wind?.speed }} km/h</div>
             </div>
         </div>
         <div

@@ -11,7 +11,7 @@
 -   [x] Currect weather
 -   [x] Search for location
 -   [x] Hourly forecast
--   [ ] Handle internalization stuff
 -   [x] Todays info
--   [ ] Daily (14 days) forecast
+-   [ ] Handle internalization stuff
 -   [ ] User favorite locations
+-   [ ] Daily (14 days) forecast | PAID option in API

@@ -8,12 +8,17 @@
             [userLocation]="userLocation"
             [locationData]="locationData"
         ></app-current-weather>
-        <app-tabbed-info
+        <div
             *ngIf="
                 userLocation !== 'denied' &&
                 userLocation !== 'none' &&
                 userLocation !== undefined
             "
-        ></app-tabbed-info>
+            class="flex flex-col items-center gap-10"
+        >
+            <app-hourly-forecast class="w-full"></app-hourly-forecast>
+            <app-todays-info class="w-full"></app-todays-info>
+            <app-weekly-forecast class="w-full"></app-weekly-forecast>
+        </div>
     </div>
 </main>

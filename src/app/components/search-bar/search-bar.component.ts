@@ -17,6 +17,7 @@ export class SearchBarComponent {
     constructor(private weatherAPIService: WeatherApiService) {}
 
     @Output() weatherDataEvent = new EventEmitter<Weather>();
+    @Output() forecastDataEvent = new EventEmitter<any>();
 
     @ViewChild('citySearch', { static: false })
     citySearchInput!: ElementRef<HTMLInputElement>;
@@ -32,11 +33,22 @@ export class SearchBarComponent {
 
         const units = 'metric';
 
+        // refactor with rxjs mergemap
         this.weatherAPIService
             .getWeatherByCityName(cityName, units)
             .subscribe((data: Weather) => {
-                console.log('From search-bar component ->', data);
+                console.log('From search-bar component WEATHER ->', data);
                 this.weatherDataEvent.emit(data);
+            });
+
+        this.weatherAPIService
+            .getHourlyForecastByLocationName(cityName, units)
+            .subscribe((data: any) => {
+                console.log(
+                    'From search-bar component FORECAST ->',
+                    data.slice(0, 7)
+                );
+                this.forecastDataEvent.emit(data.slice(0, 7));
             });
     }
 }

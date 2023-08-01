@@ -2,7 +2,8 @@
     <div class="max-w-xl mx-auto pt-16">
         <app-search-bar
             #searchBarRef
-            (weatherDataEvent)="setData($event)"
+            (weatherDataEvent)="setWeatherData($event)"
+            (forecastDataEvent)="setForecastData($event)"
         ></app-search-bar>
         <app-current-weather
             [userLocation]="userLocation"

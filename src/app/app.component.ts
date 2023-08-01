@@ -66,8 +66,12 @@ export class AppComponent {
     }
 
     // searching by location name
-    setData(data: Weather) {
+    setWeatherData(data: Weather) {
         this.userLocation = 'known';
         this.locationData = data;
+    }
+
+    setForecastData(data: any) {
+        this.locationForecast = data;
     }
 }

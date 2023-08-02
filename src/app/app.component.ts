@@ -16,6 +16,7 @@ export class AppComponent {
         private weatherAPIService: WeatherApiService
     ) {}
 
+    favouriteLocations: string[] = [];
     userLocation: any;
     locationData!: Weather;
     locationForecast: any;
@@ -71,6 +72,7 @@ export class AppComponent {
     // searching by location name
     setWeatherData(data: Weather) {
         this.userLocation = 'known';
+        this.geolocationService.userLocation = 'known';
         this.locationData = data;
     }
 
@@ -81,17 +83,18 @@ export class AppComponent {
     // favourite locaitons
     onMenuExpand(containerEl: HTMLDivElement) {
         containerEl.classList.toggle('hidden');
-        console.log('menu');
     }
 
     onStarClick() {
         if (
             this.geolocationService.userLocation === 'none' ||
-            this.geolocationService.userLocation === 'denied'
+            this.geolocationService.userLocation === 'denied' ||
+            this.favouriteLocations.includes(this.locationData.name)
         )
             return;
 
-        console.log(this.userLocation);
-        console.log('star');
+        this.favouriteLocations.push(this.locationData.name);
     }
 }
+
+// REFACTOR USERLOCATION from service and here | 2 varaibles now

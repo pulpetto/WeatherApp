@@ -105,7 +105,6 @@ export class AppComponent {
         if (
             this.geolocationService.userLocation === 'none' ||
             this.geolocationService.userLocation === 'denied'
-            // this.favouriteLocations.includes(this.locationData.name)
         )
             return;
 
@@ -121,6 +120,14 @@ export class AppComponent {
             this.favouriteIconSrc = 'assets/svg/fav-full.svg';
             this.favouriteLocations.push(this.locationData.name);
         }
+    }
+
+    onFavLocationDel(favouriteLocation: string) {
+        this.favouriteIconSrc = 'assets/svg/fav-empty.svg';
+        this.favouriteLocations.splice(
+            this.favouriteLocations.indexOf(favouriteLocation),
+            1
+        );
     }
 }
 

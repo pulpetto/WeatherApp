@@ -24,6 +24,9 @@ export class AppComponent {
     searchBarElRef!: SearchBarComponent;
 
     ngOnInit() {
+        // refactor with rxjs merge map
+        this.userLocation = this.geolocationService.userLocation;
+
         this.geolocationService.askForLocation().then(
             (coords: any) => {
                 this.geolocationService.userLocation = coords;
@@ -73,5 +76,22 @@ export class AppComponent {
 
     setForecastData(data: any) {
         this.locationForecast = data;
+    }
+
+    // favourite locaitons
+    onMenuExpand(containerEl: HTMLDivElement) {
+        containerEl.classList.toggle('hidden');
+        console.log('menu');
+    }
+
+    onStarClick() {
+        if (
+            this.geolocationService.userLocation === 'none' ||
+            this.geolocationService.userLocation === 'denied'
+        )
+            return;
+
+        console.log(this.userLocation);
+        console.log('star');
     }
 }

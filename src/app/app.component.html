@@ -1,4 +1,49 @@
 <main class="bg-neutral-950 min-h-screen text-white">
+    <button
+        (click)="onMenuExpand(favLocationsContainer)"
+        class="text-white absolute left-8 top-5 w-10 h-10 z-10"
+    >
+        <img src="assets/svg/menu.svg" class="w-full h-full" alt="empty star" />
+    </button>
+    <div
+        #favLocationsContainer
+        class="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 text-lg shadow-md w-1/4 text-white absolute h-full"
+    >
+        <!-- <div class="absolute left-60 top-6 text-2xl">Favourite Locations</div> -->
+        <div
+            class="absolute border-white border-b border-solid w-full top-20 left-0"
+        ></div>
+        <div class="absolute top-24 w-full">
+            <div>
+                <div class="flex items-center justify-between mb-6">
+                    <div class="text-5xl ml-4">Paris</div>
+                    <button class="w-14 h-14 mr-4">
+                        <img
+                            src="assets/svg/del.svg"
+                            class="w-full h-full"
+                            alt="delete icon"
+                        />
+                        <!-- <div class="text-5xl">X</div> -->
+                    </button>
+                </div>
+                <div
+                    class="border-white border-b border-solid w-full mb-6"
+                ></div>
+            </div>
+        </div>
+    </div>
+
+    <button
+        (click)="onStarClick()"
+        class="text-white absolute right-8 top-6 w-10 h-10"
+    >
+        <img
+            src="assets/svg/fav-empty.svg"
+            class="w-full h-full"
+            alt="empty star"
+        />
+    </button>
+
     <div class="max-w-xl mx-auto pt-16">
         <app-search-bar
             #searchBarRef
@@ -29,15 +74,3 @@
         </div>
     </div>
 </main>
-
-<button class="text-white absolute left-8 top-6 w-10 h-10">
-    <img src="assets/svg/menu.svg" class="w-full h-full" alt="empty star" />
-</button>
-
-<button class="text-white absolute right-8 top-6 w-10 h-10">
-    <img
-        src="assets/svg/fav-empty.svg"
-        class="w-full h-full"
-        alt="empty star"
-    />
-</button>

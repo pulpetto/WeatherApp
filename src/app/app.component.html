@@ -36,11 +36,12 @@
     </div>
 
     <button
-        (click)="onStarClick()"
+        (click)="onStarClick(favIconEl)"
         class="text-white absolute right-8 top-6 w-10 h-10"
     >
         <img
-            src="assets/svg/fav-empty.svg"
+            #favIconEl
+            [src]="favouriteIconSrc"
             class="w-full h-full"
             alt="empty star"
         />

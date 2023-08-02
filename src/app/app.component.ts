@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Input,
+    SimpleChanges,
+    ViewChild,
+} from '@angular/core';
 import { GeoLocationService } from './services/geo-location.service';
 import { WeatherApiService } from './services/weather-api.service';
 import { Weather } from './interfaces/weather';
@@ -42,6 +48,10 @@ export class AppComponent {
                         unit
                     )
                     .subscribe((data: Weather) => {
+                        if (!this.favouriteLocations.includes(data.name)) {
+                            this.favouriteIconSrc = 'assets/svg/fav-empty.svg';
+                        }
+
                         if (this.searchBarElRef) {
                             this.searchBarElRef.updateInputVal(data.name);
                         }
@@ -71,6 +81,10 @@ export class AppComponent {
 
     // searching by location name
     setWeatherData(data: Weather) {
+        if (!this.favouriteLocations.includes(data.name)) {
+            this.favouriteIconSrc = 'assets/svg/fav-empty.svg';
+        }
+
         this.userLocation = 'known';
         this.geolocationService.userLocation = 'known';
         this.locationData = data;
@@ -85,15 +99,28 @@ export class AppComponent {
         containerEl.classList.toggle('hidden');
     }
 
-    onStarClick() {
+    favouriteIconSrc: string = 'assets/svg/fav-empty.svg';
+
+    onStarClick(favIconEl: HTMLImageElement) {
         if (
             this.geolocationService.userLocation === 'none' ||
-            this.geolocationService.userLocation === 'denied' ||
-            this.favouriteLocations.includes(this.locationData.name)
+            this.geolocationService.userLocation === 'denied'
+            // this.favouriteLocations.includes(this.locationData.name)
         )
             return;
 
-        this.favouriteLocations.push(this.locationData.name);
+        console.log(favIconEl.src);
+
+        if (this.favouriteIconSrc === 'assets/svg/fav-full.svg') {
+            this.favouriteIconSrc = 'assets/svg/fav-empty.svg';
+            this.favouriteLocations.splice(
+                this.favouriteLocations.indexOf(this.locationData.name),
+                1
+            );
+        } else {
+            this.favouriteIconSrc = 'assets/svg/fav-full.svg';
+            this.favouriteLocations.push(this.locationData.name);
+        }
     }
 }
 

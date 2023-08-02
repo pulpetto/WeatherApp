@@ -7,13 +7,29 @@
     </button>
     <div
         #favLocationsContainer
-        class="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 text-lg shadow-md w-1/4 text-white absolute h-full"
+        class="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 text-lg shadow-md w-1/4 text-white absolute h-full hidden"
     >
         <!-- <div class="absolute left-60 top-6 text-2xl">Favourite Locations</div> -->
         <div
             class="absolute border-white border-b border-solid w-full top-20 left-0"
         ></div>
         <div class="absolute top-24 w-full">
+            <div
+                *ngIf="favouriteLocations.length === 0"
+                class="mx-8 mt-60 flex flex-col items-center gap-8"
+            >
+                <div class="w-32 h-32">
+                    <img
+                        src="assets/svg/ice-king.svg"
+                        class="w-full h-full"
+                        alt="ice king icon"
+                    />
+                </div>
+                <div class="text-center text-xl">
+                    You don't have any favourite locations yet, click star to
+                    add some!
+                </div>
+            </div>
             <div *ngFor="let favouriteLocation of favouriteLocations">
                 <div class="flex items-center justify-between mb-6">
                     <button class="text-5xl ml-4">

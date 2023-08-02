@@ -1,4 +1,4 @@
-<main class="bg-neutral-950 min-h-screen text-white">
+<main class="bg-neutral-950 min-h-screen text-white relative flex">
     <button
         (click)="onMenuExpand(favLocationsContainer)"
         class="text-white absolute left-8 top-5 w-10 h-10 z-10"
@@ -7,7 +7,7 @@
     </button>
     <div
         #favLocationsContainer
-        class="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 text-lg shadow-md w-1/4 text-white absolute h-full hidden"
+        class="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 text-lg shadow-md w-1/4 text-white absolute h-full hidden overflow-y-auto"
     >
         <!-- <div class="absolute left-60 top-6 text-2xl">Favourite Locations</div> -->
         <div

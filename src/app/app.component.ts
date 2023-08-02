@@ -9,7 +9,6 @@ import { GeoLocationService } from './services/geo-location.service';
 import { WeatherApiService } from './services/weather-api.service';
 import { Weather } from './interfaces/weather';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 
 @Component({
     selector: 'app-root',

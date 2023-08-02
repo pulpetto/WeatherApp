@@ -15,3 +15,9 @@
 -   [x] User favorite locations
 -   [ ] Daily (14 days) forecast | PAID option in API
 -   [ ] Handle internalization stuff
+
+# Things to change & improve
+
+-   [ ] Use merge map in some places
+-   [ ] Refactor functions in own files
+-   [ ] Change icons & todays info & favourite locations styling
